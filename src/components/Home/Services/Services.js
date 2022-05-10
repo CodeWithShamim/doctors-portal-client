@@ -12,16 +12,16 @@ const Services = () => {
       {/* __________service item end__________ */}
 
       {/* ______treatment banner section start____ */}
-      <div className="flex flex-col md:flex-row px-40 my-28 content-center items-center">
+      <div className="flex flex-col lg:flex-row px-4 lg:px-40 my-28 content-center items-center">
         <div className="left-side">
           <img
-            className="basis-1/5 rounded-2xl w-full"
+            className="basis-1/5 rounded-2xl w-100 h-full"
             src={treatment}
             alt="treatment-img"
           />
         </div>
-        <div className="right-side basis-4/5 pl-20 text-left">
-          <h1 className="text-5xl font-bold">
+        <div className="right-side basis-4/5 pl-0 px-0 md:px-12 lg:px-20 text-left">
+          <h1 className="text-5xl font-bold mt-8 lg:mt-0">
             Exceptional Dental Care, on Your Terms
           </h1>
           <p className="py-8 font-serif">
