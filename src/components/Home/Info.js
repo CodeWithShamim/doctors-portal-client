@@ -9,9 +9,9 @@ const Info = () => {
       {/* _____________card_____________ */}
       <div className="card-container flex flex-col lg:flex-row mx-4 lg:mx-12 text-white text-left w-100">
         {/* ___________card1______________ */}
-        <div class="card flex lg:card-side shadow-xl bg-gradient-to-r from-secondary to-primary flex-1">
+        <div class="card flex lg:card-side shadow-xl bg-gradient-to-r from-secondary to-primary flex-1 md:content-center md:items-center">
           <figure>
-            <img src={clock} className="m-8" alt="Album" />
+            <img src={clock} className="mt-2 md:mt-6 lg:m-8" alt="Album" />
           </figure>
           <div class="card-body">
             <h2 class="card-title">Opening Hours</h2>
@@ -20,9 +20,9 @@ const Info = () => {
         </div>
 
         {/* ___________card2______________ */}
-        <div class="card flex lg:card-side shadow-xl mx-0 my-4 lg:my-0 lg:mx-6 bg-accent flex-1">
+        <div class="card flex lg:card-side shadow-xl mx-0 my-4 lg:my-0 lg:mx-6 bg-accent flex-1 md:content-center md:items-center">
           <figure>
-            <img src={marker} className="m-8" alt="Album" />
+            <img src={marker} className="mt-2 md:mt-6 lg:m-8" alt="Album" />
           </figure>
           <div class="card-body">
             <h2 class="card-title">Visit our location</h2>
@@ -31,9 +31,9 @@ const Info = () => {
         </div>
 
         {/* ___________card3______________ */}
-        <div class="card flex lg:card-side shadow-xl bg-gradient-to-r from-secondary to-primary align-middle justify-center flex-1">
+        <div class="card flex lg:card-side shadow-xl bg-gradient-to-r from-secondary to-primary md:content-center md:items-center flex-1">
           <figure>
-            <img src={phone} className="m-8" alt="Album" />
+            <img src={phone} className="mt-2 md:mt-6 lg:m-8" alt="Album" />
           </figure>
           <div class="card-body">
             <h2 class="card-title">Contact us now</h2>
