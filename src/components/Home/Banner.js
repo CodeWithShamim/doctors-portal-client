@@ -3,13 +3,13 @@ import chair from "../../images/chair.png";
 
 const Banner = () => {
   return (
-    <div className="banner-container bg-hero-bg">
+    <div className="banner-container">
       {/* __________hero start_________ */}
-      <div className="hero min-h-screen ml-0 lg:ml-8">
+      <div className="hero min-h-screen ">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             src={chair}
-            className="max-w-lg w-full rounded-lg shadow-2xl mr-0 lg:mr-12"
+            className="max-w-lg w-full rounded-lg shadow-2xl mr-0 lg:mr-8"
             alt=""
           />
           <div className="text-left pr-16">
