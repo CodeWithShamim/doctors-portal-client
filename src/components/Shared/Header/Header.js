@@ -40,7 +40,7 @@ const Header = () => {
               <Link to="/reviews">Reviews</Link>
             </li>
             <li>
-              <Link to="/contactUs">Contact Us</Link>
+              <Link to="/contactus">Contact</Link>
             </li>
             {/* _______login_____ */}
             <li>
@@ -70,7 +70,7 @@ const Header = () => {
             <Link to="/reviews">Reviews</Link>
           </li>
           <li>
-            <Link to="/contactUs">Contact Us</Link>
+            <Link to="/contactus">Contact Us</Link>
           </li>
           {/* _______login_____ */}
           <li>
