@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 px-0 md:px-10">
       <div className="navbar-start">
         {/* _______dropdown for responsive_________ */}
         <div className="dropdown">
@@ -28,54 +28,53 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="">About</Link>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="">Appoinment</Link>
+              <Link to="/appoinment">Appoinment</Link>
             </li>
             <li>
-              <Link to="">Reviews</Link>
+              <Link to="/reviews">Reviews</Link>
             </li>
             <li>
-              <Link to="">Contact Us</Link>
+              <Link to="/contactUs">Contact Us</Link>
             </li>
-            <li>
-              <Link to="">Login</Link>
-            </li>
+            {/* _______btn_____ */}
+            <button className="btn">
+              <Link to="/login">Login</Link>
+            </button>
           </ul>
         </div>
 
         {/* _______logo____________ */}
-        <div>
-          <Link to="" className="btn btn-ghost normal-case text-xl">
-            Doctors portal
-          </Link>
-        </div>
+
+        <Link to="/" className="btn btn-ghost normal-case text-xl md:text-2xl">
+          Doctors portal
+        </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <Link to="">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="">About</Link>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="">Appoinment</Link>
+            <Link to="/appoinment">Appoinment</Link>
           </li>
           <li>
-            <Link to="">Reviews</Link>
+            <Link to="/reviews">Reviews</Link>
           </li>
           <li>
-            <Link to="">Contact Us</Link>
+            <Link to="/contactUs">Contact Us</Link>
           </li>
-
           {/* _______btn_____ */}
           <button className="btn">
-            <Link to="">Login</Link>
+            <Link to="/login">Login</Link>
           </button>
         </ul>
       </div>
