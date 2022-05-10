@@ -42,10 +42,10 @@ const Header = () => {
             <li>
               <Link to="/contactUs">Contact Us</Link>
             </li>
-            {/* _______btn_____ */}
-            <button className="btn">
+            {/* _______login_____ */}
+            <li>
               <Link to="/login">Login</Link>
-            </button>
+            </li>
           </ul>
         </div>
 
@@ -72,10 +72,10 @@ const Header = () => {
           <li>
             <Link to="/contactUs">Contact Us</Link>
           </li>
-          {/* _______btn_____ */}
-          <button className="btn">
+          {/* _______login_____ */}
+          <li>
             <Link to="/login">Login</Link>
-          </button>
+          </li>
         </ul>
       </div>
     </div>
