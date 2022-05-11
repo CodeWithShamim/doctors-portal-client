@@ -7,7 +7,7 @@ const Appointment = () => {
   return (
     <section
       style={{ background: `url(${appointment})` }}
-      className="my-6 bg-black text-white flex items-center content-center"
+      className="my-6 bg-black text-white flex items-center content-center p-6 md:p-0"
     >
       {/* ________left side______ */}
       <div className="flex-1 hidden md:block">
@@ -19,11 +19,11 @@ const Appointment = () => {
         <h4 className="text-secondary text-md font-serif font-semibold">
           Appointment
         </h4>
-        <h2 className="md:text-2xl lg:text-4xl pt-3 font-serif">
+        <h2 className="text-4xl md:text-2xl lg:text-4xl pt-3 font-serif">
           Make an appointment Today
         </h2>
 
-        <p className=" md:py-4 lg:py-8 font-serif">
+        <p className="py-4 lg:py-8 font-serif">
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout. The point of
           using Lorem Ipsumis that it has a more-or-less normal distribution of
