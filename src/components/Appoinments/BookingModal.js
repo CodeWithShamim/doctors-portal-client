@@ -4,12 +4,27 @@ import React from "react";
 const BookingModal = ({ treatment, date }) => {
   const { name, slots } = treatment;
 
+  // __________handleBooking__________
+  const handleBooking = (e) => {
+    e.preventDefault();
+
+    const date = e.target.date.value;
+    const slot = e.target.slot.value;
+    const name = e.target.name.value;
+    const phone = e.target.phone.value;
+    const email = e.target.email.value;
+    console.log(date, slot, name, phone, email);
+
+    const bookingForm = document.getElementById("booking-form");
+    bookingForm.reset();
+  };
+
   return (
     <div>
       {/* _________modal start________ */}
 
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
-      <div className="modal modal-bottom sm:modal-middle">
+      <div className="modal modal-top sm:modal-middle">
         <div className="modal-box">
           <label
             htmlFor="booking-modal"
@@ -19,25 +34,42 @@ const BookingModal = ({ treatment, date }) => {
           </label>
 
           {/* ______content Start________ */}
-          <h3 className="font-bold text-xl text-left pb-6">{name}</h3>
-          <div className="input-group flex flex-col">
+          <h3 className="font-bold text-2xl text-left pb-6 text-secondary">
+            {name}
+          </h3>
+
+          {/* ______form_____ */}
+          <form
+            onSubmit={handleBooking}
+            id="booking-form"
+            className="input-group flex flex-col"
+          >
             <input
               className="mt-6 border-0 rounded-lg p-2 outline-0 bg-base-300"
               type="text"
               name="date"
               id="date"
               readOnly
+              disabled
               value={format(date, "PP")}
             />
 
-            <input
-              className="my-6 border-0 rounded-lg p-2 outline-0 bg-base-300"
-              type="text"
-              name="slots"
-              id="slots"
-              readOnly
-              value={slots[0]}
-            />
+            {/* ______select slots______ */}
+            <select
+              className="border-2 border-base-300 select w-full my-6 rounded-lg p-2 outline-0"
+              name="slot"
+              id="slot"
+              required
+            >
+              <option disabled selected>
+                Select time
+              </option>
+              {slots.map((slot, tabIndex) => (
+                <option key={tabIndex} value={slot}>
+                  {slot}
+                </option>
+              ))}
+            </select>
 
             <input
               className="border-2 rounded-lg p-2 outline-0"
@@ -60,7 +92,7 @@ const BookingModal = ({ treatment, date }) => {
             />
 
             <input
-              className="mb-2 border-2 rounded-lg p-2 outline-0"
+              className="mb-6 border-2 rounded-lg p-2 outline-0"
               type="email"
               name="email"
               id="email"
@@ -68,17 +100,16 @@ const BookingModal = ({ treatment, date }) => {
               autoComplete="off"
               placeholder="Email"
             />
-          </div>
-          {/* ______content End */}
 
-          <div className="modal-action w-full">
-            <label
+            {/* ______submit btn_______ */}
+            <input
+              type="submit"
+              value="Submit"
               htmlFor="booking-modal"
-              className="btn btn-black w-full mx-auto"
-            >
-              Submit
-            </label>
-          </div>
+              className="btn btn-secondary text-white font-bold w-full mx-auto"
+            />
+          </form>
+          {/* ______content End */}
         </div>
       </div>
       {/* __________modal end__________ */}
