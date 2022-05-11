@@ -10,7 +10,7 @@ const AvailableAppoinment = ({ date }) => {
       .then((data) => setServices(data));
   }, []);
   return (
-    <div className="py-24">
+    <div className=" md:py-24">
       <h1 className="text-3xl text-secondary">
         Available Appointments on {format(date, "PP")}
       </h1>
