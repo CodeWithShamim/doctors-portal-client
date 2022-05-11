@@ -1,6 +1,7 @@
 import React from "react";
 import Service from "./Service";
 import treatment from "../../../images/treatment.png";
+import PrimaryButton from "../../Shared/PrimaryButton";
 
 const Services = () => {
   return (
@@ -32,9 +33,8 @@ const Services = () => {
             here', making it look like readable English. Many desktop publishing
             packages and web page
           </p>
-          <button className="btn btn-primary text-white font-bold rounded-md bg-gradient-to-r from-secondary to-primary">
-            Get Started
-          </button>
+          {/* ------add btn------- */}
+          <PrimaryButton>Get started</PrimaryButton>
         </div>
         {/* ______treatment banner section end */}
       </div>
