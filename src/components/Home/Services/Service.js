@@ -14,7 +14,7 @@ const Service = () => {
         "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
     },
     {
-      id: 1,
+      id: 2,
       img: cavity,
       title: "Cavity Filling",
       description:

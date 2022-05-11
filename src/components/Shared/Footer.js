@@ -15,11 +15,11 @@ const Footer = () => {
         backgroundSize: "cover",
       }}
     >
-      <footer class="footer p-8 bg-transparent text-base-content py-28">
+      <footer className="footer p-8 bg-transparent text-base-content py-28 flex flex-col md:flex-row font-serif">
         {/* ____________logo____________ */}
 
-        <div>
-          <img className="w-1/2 h-full ml-6" src={doctor} alt="logo" />
+        <div className="flex flex-col items-center content-center basis-1/4">
+          <img className="w-1/2 h-full" src={doctor} alt="logo" />
           <p>
             <span className="text-md font-medium">ORAL HEALTH</span>
             <br />
@@ -28,8 +28,8 @@ const Footer = () => {
         </div>
 
         {/* __________service item____________ */}
-        <div>
-          <span class="footer-title">SERVICES</span>
+        <div className="basis-1/4">
+          <span className="footer-title">SERVICES</span>
           <Link to="" className="link link-hover">
             Emergency Checkup
           </Link>
@@ -44,8 +44,8 @@ const Footer = () => {
           </Link>
         </div>
         {/* ____________company name_____________ */}
-        <div>
-          <span class="footer-title">ORAL HEALTH</span>
+        <div className="basis-1/4">
+          <span className="footer-title">ORAL HEALTH</span>
           <Link to="" className="link link-hover">
             Fluoride Treatment
           </Link>
@@ -57,8 +57,8 @@ const Footer = () => {
           </Link>
         </div>
         {/* _________address____________ */}
-        <div>
-          <span class="footer-title">OUR ADDRESS</span>
+        <div className="basis-1/4">
+          <span className="footer-title">OUR ADDRESS</span>
           <Link to="" className="link link-hover">
             New York - 101010 Hudson
           </Link>
