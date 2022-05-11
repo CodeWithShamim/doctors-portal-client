@@ -6,7 +6,11 @@ import PrimaryButton from "../Shared/PrimaryButton";
 const Appointment = () => {
   return (
     <section
-      style={{ background: `url(${appointment})` }}
+      style={{
+        background: `url(${appointment})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
       className="my-6 bg-black text-white flex items-center content-center p-6 md:p-0"
     >
       {/* ________left side______ */}

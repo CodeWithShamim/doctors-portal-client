@@ -1,10 +1,19 @@
 import React from "react";
 import chair from "../../images/chair.png";
+import bg from "../../images/bg.png";
 import PrimaryButton from "../Shared/PrimaryButton";
 
 const Banner = () => {
   return (
-    <div className="banner-container">
+    <div
+      className="banner-container"
+      style={{
+        background: `url(${bg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover ",
+      }}
+    >
       {/* __________hero start_________ */}
       <div className="hero py-8 md:py-12 lg:min-h-screen ">
         <div className="hero-content flex-col lg:flex-row-reverse">
