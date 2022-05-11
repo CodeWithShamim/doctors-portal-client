@@ -8,6 +8,7 @@ import Appoinment from "./components/Appoinment/Appoinment";
 import About from "./components/About/About";
 import Login from "./components/Login/Login";
 import Footer from "./components/Shared/Footer";
+import Page_404 from "./components/Shared/Page_404";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/contactUs" element={<ContactUs></ContactUs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="*" element={<Page_404></Page_404>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
