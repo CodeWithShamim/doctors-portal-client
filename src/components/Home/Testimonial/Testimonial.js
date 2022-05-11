@@ -3,6 +3,7 @@ import people1 from "../../../images/people1.png";
 import people2 from "../../../images/people2.png";
 import people3 from "../../../images/people3.png";
 import TestimonialCard from "./TestimonialCard";
+import quote from "../../../icons/quote.svg";
 
 const Testimonial = () => {
   const testimonials = [
@@ -29,14 +30,22 @@ const Testimonial = () => {
     },
   ];
   return (
-    <div className="px-6 md:px-12 font-serif">
-      <div className="text-left pt-8">
+    <div
+      className="font-serif m-0 md:m-16"
+      style={{
+        background: `url(${quote})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "right top",
+        backgroundSize: "200px ",
+      }}
+    >
+      <div className="text-left pt-8 mx-4 md:mx-0">
         <h3 className="text-secondary font-semibold py-4">Testimonial</h3>
         <h1 className="text-4xl">What Our Patients Says</h1>
       </div>
 
       {/* _________card info start___________ */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 md:m-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-4 my-16 md:my-32">
         {testimonials.map((testimonial) => (
           <TestimonialCard
             key={testimonial._id}
