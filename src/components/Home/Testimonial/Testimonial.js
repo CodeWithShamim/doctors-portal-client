@@ -34,20 +34,6 @@ const Testimonial = () => {
       address: "California",
       text: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content.",
     },
-    {
-      _id: 4,
-      img: people2,
-      name: "Winson Herry",
-      address: "California",
-      text: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content.",
-    },
-    {
-      _id: 5,
-      img: people3,
-      name: "Winson Herry",
-      address: "California",
-      text: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content.",
-    },
   ];
   return (
     <div
@@ -67,13 +53,14 @@ const Testimonial = () => {
       {/* _____swiper start______ */}
       <Swiper
         className="mySwiper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-4 my-16 md:my-32"
+        loop={true}
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
-        spaceBetween={30}
+        spaceBetween={50}
         slidesPerView={"auto"}
         autoplay={{
-          delay: 2500,
+          delay: 2000,
           disableOnInteraction: false,
         }}
         coverflowEffect={{
@@ -81,7 +68,7 @@ const Testimonial = () => {
           stretch: 0,
           depth: 100,
           modifier: 1,
-          slideShadows: true,
+          slideShadows: false,
         }}
         pagination={
           (true,
@@ -89,11 +76,10 @@ const Testimonial = () => {
             clickable: true,
           })
         }
-        // navigation={true}
         modules={[Autoplay, EffectCoverflow, Pagination]}
       >
         {testimonials.map(({ _id, name, address, img, text }) => (
-          <SwiperSlide key={_id} className="shadow p-6 text-left rounded-xl">
+          <SwiperSlide key={_id} className="shadow p-12 text-left rounded-xl">
             <div>
               <p>{text}</p>
             </div>
