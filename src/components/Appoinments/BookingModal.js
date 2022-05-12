@@ -61,9 +61,7 @@ const BookingModal = ({ treatment, date }) => {
               id="slot"
               required
             >
-              <option disabled selected>
-                Select time
-              </option>
+              <option>Select time</option>
               {slots.map((slot, tabIndex) => (
                 <option key={tabIndex} value={slot}>
                   {slot}
