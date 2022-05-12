@@ -1,13 +1,32 @@
 import React from "react";
+import auth from "../../firebase.init";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const navigate = useNavigate();
+
+  // ______get user_________
+  if (user) {
+    navigate("/");
+  }
+  // ______get loading______
+  if (loading) {
+    return <h1 className="text-5xl">Loading....</h1>;
+  }
+  // _________get error________
+  if (error) {
+    console.log(error);
+  }
+
   return (
     <div className="flex items-center justify-center h-screen font-serif mx-4 md:mx-0">
       {/* _______card start__________ */}
-      <div class="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-96 bg-base-100 shadow-xl">
         {/* ________card body start_______ */}
-        <div class="card-body items-center text-left">
-          <h2 class="card-title">Login</h2>
+        <div className="card-body items-center text-left">
+          <h2 className="card-title">Login</h2>
           <form className="grid w-full">
             <label htmlFor="email">Email</label>
             <input
@@ -35,15 +54,19 @@ const Login = () => {
           </form>
 
           {/* _________divider__________ */}
-          <div class="flex flex-col w-full border-opacity-50">
+          <div className="flex flex-col w-full border-opacity-50">
             <p className="px-6 py-2 font-sans">
               New to Doctors Portal?{" "}
               <span className="text-secondary text-sm cursor-pointer">
                 Create new account?
               </span>
             </p>
-            <div class="divider">OR</div>
-            <div class="btn bg-transparent hover:bg-transparent text-black grid h-15 border-2 py-2 cursor-pointer card rounded-box place-items-center">
+            <div className="divider">OR</div>
+            {/* _________google sign in____________ */}
+            <div
+              onClick={() => signInWithGoogle()}
+              className="btn bg-transparent hover:bg-transparent text-black grid h-15 border-2 py-2 cursor-pointer card rounded-box place-items-center"
+            >
               CONTINUE WITH GOOGLE
             </div>
           </div>
