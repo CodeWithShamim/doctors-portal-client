@@ -26,8 +26,16 @@ const Login = () => {
       <div className="card w-96 bg-base-100 shadow-xl">
         {/* ________card body start_______ */}
         <div className="card-body items-center text-left">
-          <h2 className="card-title">Login</h2>
+          <h2 className="card-title">Register</h2>
           <form className="grid w-full">
+            <label htmlFor="name">Name</label>
+            <input
+              className="border-2 rounded-lg p-2 mb-3"
+              type="name"
+              name="name"
+              id="name"
+            />
+
             <label htmlFor="email">Email</label>
             <input
               className="border-2 rounded-lg p-2 mb-3"
@@ -35,6 +43,7 @@ const Login = () => {
               name="email"
               id="email"
             />
+
             <label htmlFor="password">Password</label>
             <input
               className="border-2 rounded-lg p-2"
@@ -42,6 +51,7 @@ const Login = () => {
               name="password"
               id="password"
             />
+
             <span className="mb-4 text-xs p-2 cursor-pointer">
               Forgotton password?
             </span>
@@ -49,16 +59,16 @@ const Login = () => {
             <input
               className="cursor-pointer uppercase rounded-lg w-full text-base-300 text-md p-3 font-bold bg-black"
               type="submit"
-              value="Login"
+              value="Sign up"
             />
           </form>
 
           {/* _________divider__________ */}
           <div className="flex flex-col w-full border-opacity-50">
             <p className="px-6 py-2 font-sans">
-              New to Doctors Portal?
+              Already have an account?
               <span className="text-secondary text-sm cursor-pointer">
-                <Link to="/signup"> Create new account</Link>
+                <Link to="/login"> Login</Link>
               </span>
             </p>
             <div className="divider">OR</div>
