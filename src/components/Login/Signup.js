@@ -1,6 +1,9 @@
 import React from "react";
 import auth from "../../firebase.init";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -10,26 +13,32 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
   const navigate = useNavigate();
 
   // ______get user_________
-  if (user) {
+  if (googleUser || user) {
     navigate("/");
   }
   // ______get loading______
-  if (loading) {
-    return <h1 className="text-5xl">Loading....</h1>;
-  }
+  // if (googleLoading || loading) {
+  //   return <h1 className="text-5xl">Loading....</h1>;
+  // }
   // _________get error________
-  if (error) {
-    console.log(error);
+  let signUpError;
+  if (googleError || error) {
+    signUpError = googleError?.code || error?.code;
   }
 
   // ________use react hook form_________
   const onSubmit = (data) => {
-    console.log(data);
+    const { email, password } = data;
+    createUserWithEmailAndPassword(email, password);
   };
+
   return (
     <div className="flex items-center justify-center h-screen font-serif mx-4 md:mx-0">
       {/* _______card start__________ */}
@@ -142,10 +151,15 @@ const Login = () => {
               Forgotton password?
             </span>
 
+            {/* _________show error & loading________  */}
+            <small className="text-red-500 text-center pb-2">
+              {signUpError}
+            </small>
+
             <input
               className="cursor-pointer uppercase rounded-lg w-full text-base-300 text-md p-3 font-bold bg-black"
               type="submit"
-              value="Sign up"
+              value={loading ? "Loading...." : "Sign up"}
             />
           </form>
 
@@ -159,12 +173,16 @@ const Login = () => {
             </p>
             <div className="divider">OR</div>
             {/* _________google sign in____________ */}
-            <div
-              onClick={() => signInWithGoogle()}
-              className="btn bg-transparent hover:bg-transparent text-black grid h-15 border-2 py-2 cursor-pointer card rounded-box place-items-center"
-            >
-              CONTINUE WITH GOOGLE
-            </div>
+            {googleLoading ? (
+              <button class="btn loading">loading</button>
+            ) : (
+              <div
+                onClick={() => signInWithGoogle()}
+                className="btn bg-transparent hover:bg-transparent text-black grid h-15 border-2 py-2 cursor-pointer card rounded-box place-items-center"
+              >
+                CONTINUE WITH GOOGLE
+              </div>
+            )}
           </div>
           {/* __________divider end_____________ */}
         </div>
