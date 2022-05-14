@@ -10,6 +10,8 @@ import Signup from "./components/Login/Signup";
 import Footer from "./components/Shared/Footer";
 import Page_404 from "./components/Shared/Page_404";
 import Appoinments from "./components/Appoinments/Appoinments";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -32,7 +34,7 @@ function App() {
         <Route path="/signup" element={<Signup> </Signup>}></Route>
         <Route Route path="*" element={<Page_404> </Page_404>}></Route>
       </Routes>{" "}
-      <Footer> </Footer>{" "}
+      <Footer> </Footer> <ToastContainer />
     </div>
   );
 }

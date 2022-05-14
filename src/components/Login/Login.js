@@ -22,6 +22,7 @@ const Login = () => {
 
   // ______get user_________
   if (googleUser || user) {
+    console.log(googleUser);
     navigate("/");
   }
   // // ______get loading______

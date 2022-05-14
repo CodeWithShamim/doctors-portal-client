@@ -3,6 +3,7 @@ import auth from "../../firebase.init";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -17,10 +18,12 @@ const Login = () => {
     useCreateUserWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
+  const [updateProfile, updating, UpdateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
 
   // ______get user_________
   if (googleUser || user) {
+    // console.log(user, googleUser);
     navigate("/");
   }
   // ______get loading______
@@ -34,9 +37,10 @@ const Login = () => {
   }
 
   // ________use react hook form_________
-  const onSubmit = (data) => {
-    const { email, password } = data;
-    createUserWithEmailAndPassword(email, password);
+  const onSubmit = async (data) => {
+    const { name, email, password } = data;
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
   };
 
   return (
