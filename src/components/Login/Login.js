@@ -29,7 +29,7 @@ const Login = () => {
   }
   // // ______get loading______
   // if (googleLoading || loading) {
-  //   return <button class="btn loading">loading</button>;
+  //   return <button className="btn loading">loading</button>;
   // }
   // // _________get error________
   let signInError;
@@ -146,7 +146,7 @@ const Login = () => {
             {/* _________google sign in & show loading____________ */}
 
             {googleLoading ? (
-              <button class="btn loading">loading</button>
+              <button className="btn loading">loading</button>
             ) : (
               <div
                 onClick={() => signInWithGoogle()}

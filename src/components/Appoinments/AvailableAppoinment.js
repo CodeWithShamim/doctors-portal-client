@@ -31,7 +31,11 @@ const AvailableAppoinment = ({ date }) => {
 
       {/* ________get modal_______ */}
       {treatment && (
-        <BookingModal treatment={treatment} date={date}></BookingModal>
+        <BookingModal
+          treatment={treatment}
+          setTreatment={setTreatment}
+          date={date}
+        ></BookingModal>
       )}
     </div>
   );

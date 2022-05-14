@@ -1,8 +1,13 @@
 import { format } from "date-fns";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
-const BookingModal = ({ treatment, date }) => {
+const BookingModal = ({ treatment, setTreatment, date }) => {
   const { name, slots } = treatment;
+  const [{ displayName, email }] = useAuthState(auth);
+
+  // console.log(user);
 
   // __________handleBooking__________
   const handleBooking = (e) => {
@@ -15,6 +20,7 @@ const BookingModal = ({ treatment, date }) => {
     const email = e.target.email.value;
     console.log(date, slot, name, phone, email);
 
+    setTreatment(null);
     const bookingForm = document.getElementById("booking-form");
     bookingForm.reset();
   };
@@ -45,7 +51,7 @@ const BookingModal = ({ treatment, date }) => {
             className="input-group flex flex-col"
           >
             <input
-              className="mt-6 border-0 rounded-lg p-2 outline-0 bg-base-300"
+              className="mt-6 border-0 rounded-lg p-2 outline-0 bg-base-200"
               type="text"
               name="date"
               id="date"
@@ -70,12 +76,13 @@ const BookingModal = ({ treatment, date }) => {
             </select>
 
             <input
-              className="border-2 rounded-lg p-2 outline-0"
+              className="border-2 rounded-lg p-2 outline-0 bg-base-200"
               type="text"
               name="name"
               id="name"
-              required
-              autoComplete="off"
+              value={displayName}
+              disabled
+              readOnly
               placeholder="Full Name"
             />
 
@@ -90,12 +97,13 @@ const BookingModal = ({ treatment, date }) => {
             />
 
             <input
-              className="mb-6 border-2 rounded-lg p-2 outline-0"
+              className="mb-6 border-2 rounded-lg p-2 outline-0 bg-base-200"
               type="email"
               name="email"
               id="email"
-              required
-              autoComplete="off"
+              value={email}
+              disabled
+              readOnly
               placeholder="Email"
             />
 

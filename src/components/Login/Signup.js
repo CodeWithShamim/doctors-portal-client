@@ -180,7 +180,7 @@ const Login = () => {
             <div className="divider">OR</div>
             {/* _________google sign in____________ */}
             {googleLoading ? (
-              <button class="btn loading">loading</button>
+              <button className="btn loading">loading</button>
             ) : (
               <div
                 onClick={() => signInWithGoogle()}
