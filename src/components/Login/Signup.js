@@ -5,7 +5,7 @@ import {
   useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
@@ -20,11 +20,13 @@ const Login = () => {
     useSignInWithGoogle(auth);
   const [updateProfile, updating, UpdateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   // ______get user_________
   if (googleUser || user) {
     // console.log(user, googleUser);
-    navigate("/");
+    navigate(from);
   }
   // ______get loading______
   // if (googleLoading || loading) {
