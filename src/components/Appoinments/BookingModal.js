@@ -4,7 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
 const BookingModal = ({ treatment, setTreatment, date }) => {
-  const { name, slots } = treatment;
+  const { _id, name, slots } = treatment;
   const [{ displayName, email }] = useAuthState(auth);
 
   // console.log(user);
@@ -12,14 +12,23 @@ const BookingModal = ({ treatment, setTreatment, date }) => {
   // __________handleBooking__________
   const handleBooking = (e) => {
     e.preventDefault();
-
     const date = e.target.date.value;
     const slot = e.target.slot.value;
-    const name = e.target.name.value;
     const phone = e.target.phone.value;
-    const email = e.target.email.value;
-    console.log(date, slot, name, phone, email);
 
+    const booking = {
+      treatmentId: _id,
+      treatmentName: name,
+      date: date,
+      slot: slot,
+      patientName: displayName,
+      patientPhone: phone,
+      patientEmail: email,
+    };
+
+    console.log(booking);
+
+    // _________reset form____________
     setTreatment(null);
     const bookingForm = document.getElementById("booking-form");
     bookingForm.reset();
