@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const BookingModal = ({ treatment, setTreatment, date }) => {
@@ -26,7 +27,7 @@ const BookingModal = ({ treatment, setTreatment, date }) => {
       patientEmail: email,
     };
 
-    console.log(booking);
+    // console.log(booking);
 
     fetch("http://localhost:5000/booking", {
       method: "POST",
@@ -37,9 +38,16 @@ const BookingModal = ({ treatment, setTreatment, date }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         // ____to close the modal___
-        setTreatment(null);
+        if (data.insertedId) {
+          setTreatment(null);
+          toast.success(`Booking set is ${date} at ${slot}`);
+        }
+        if (data.success === "duplicate booking") {
+          setTreatment(null);
+          toast.warning(`Already booking for ${data.booking.treatmentName}`);
+        }
       });
 
     // _________reset form____________
