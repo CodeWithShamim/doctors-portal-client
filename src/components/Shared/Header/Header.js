@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const Header = () => {
@@ -32,19 +32,19 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink to="/about">About</NavLink>
             </li>
             <li>
-              <Link to="/appoinment">Appoinment</Link>
+              <NavLink to="/appoinment">Appoinment</NavLink>
             </li>
             <li>
-              <Link to="/reviews">Reviews</Link>
+              <NavLink to="/reviews">Reviews</NavLink>
             </li>
             <li>
-              <Link to="/contactus">Contact</Link>
+              <NavLink to="/contactus">Contact</NavLink>
             </li>
             {/* _______login_____ */}
             <li>
@@ -53,7 +53,7 @@ const Header = () => {
                   Sign out
                 </span>
               ) : (
-                <Link to="/login">Login</Link>
+                <NavLink to="/login">Login</NavLink>
               )}
             </li>
           </ul>
@@ -61,26 +61,29 @@ const Header = () => {
 
         {/* _______logo____________ */}
 
-        <Link to="/" className="btn btn-ghost normal-case text-xl md:text-2xl">
+        <NavLink
+          to="/"
+          className="btn btn-ghost normal-case text-xl md:text-2xl"
+        >
           Doctors portal
-        </Link>
+        </NavLink>
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <Link to="/appoinment">Appoinment</Link>
+            <NavLink to="/appoinment">Appoinment</NavLink>
           </li>
           <li>
-            <Link to="/reviews">Reviews</Link>
+            <NavLink to="/reviews">Reviews</NavLink>
           </li>
           <li>
-            <Link to="/contactus">Contact Us</Link>
+            <NavLink to="/contactus">Contact Us</NavLink>
           </li>
           {/* _______login_____ */}
           <li>
@@ -89,7 +92,7 @@ const Header = () => {
                 Sign out
               </span>
             ) : (
-              <Link to="/login">Login</Link>
+              <NavLink to="/login">Login</NavLink>
             )}
           </li>
         </ul>
