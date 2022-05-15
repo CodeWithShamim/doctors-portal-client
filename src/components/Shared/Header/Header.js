@@ -6,6 +6,7 @@ import auth from "../../../firebase.init";
 
 const Header = () => {
   const [user] = useAuthState(auth);
+
   return (
     <div className="navbar bg-base-100 px-0 md:px-10">
       <div className="navbar-start">
@@ -85,6 +86,9 @@ const Header = () => {
           <li>
             <NavLink to="/contactus">Contact Us</NavLink>
           </li>
+          <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
+            Theme
+          </button>
           {/* _______login_____ */}
           <li>
             {user ? (
