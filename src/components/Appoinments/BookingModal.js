@@ -28,8 +28,22 @@ const BookingModal = ({ treatment, setTreatment, date }) => {
 
     console.log(booking);
 
+    fetch("http://localhost:5000/booking", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // ____to close the modal___
+        setTreatment(null);
+      });
+
     // _________reset form____________
-    setTreatment(null);
+
     const bookingForm = document.getElementById("booking-form");
     bookingForm.reset();
   };
