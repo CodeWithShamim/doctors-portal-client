@@ -47,6 +47,9 @@ const Header = () => {
             <li>
               <NavLink to="/contactus">Contact</NavLink>
             </li>
+            <li>
+              <NavLink to="/dashboard">Dashboard</NavLink>
+            </li>
             {/* _______login_____ */}
             <li>
               {user ? (
@@ -84,7 +87,10 @@ const Header = () => {
             <NavLink to="/reviews">Reviews</NavLink>
           </li>
           <li>
-            <NavLink to="/contactus">Contact Us</NavLink>
+            <NavLink to="/contactus">Contact</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard">Dashboard</NavLink>
           </li>
           {/* <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
             Theme

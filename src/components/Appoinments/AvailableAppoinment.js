@@ -16,7 +16,7 @@ const AvailableAppoinment = ({ date }) => {
     data: services,
     isLoading,
     refetch,
-  } = useQuery(["user", formatedDate], () =>
+  } = useQuery(["available", formatedDate], () =>
     fetch(`http://localhost:5000/available?date=${formatedDate}`).then((res) =>
       res.json()
     )
