@@ -46,7 +46,9 @@ const BookingModal = ({ treatment, setTreatment, date }) => {
         }
         if (data.success === "duplicate booking") {
           setTreatment(null);
-          toast.warning(`Already booking for ${data.booking.treatmentName}`);
+          toast.error(
+            `Already have a booking for ${data.booking.treatmentName} on ${date} at ${slot}`
+          );
         }
       });
 

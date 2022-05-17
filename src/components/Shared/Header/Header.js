@@ -86,9 +86,9 @@ const Header = () => {
           <li>
             <NavLink to="/contactus">Contact Us</NavLink>
           </li>
-          <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
+          {/* <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
             Theme
-          </button>
+          </button> */}
           {/* _______login_____ */}
           <li>
             {user ? (
