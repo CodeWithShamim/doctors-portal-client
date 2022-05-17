@@ -10,13 +10,6 @@ const SideBar = ({ children }) => {
         {/* <!-- Page content here --> */}
         <h1>This is Dashboard</h1>
         {children}
-
-        <label
-          htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
-        >
-          Open drawer
-        </label>
       </div>
 
       <div className="drawer-side">
@@ -24,10 +17,10 @@ const SideBar = ({ children }) => {
         <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>
-            <NavLink to="myAppoinment">Sidebar Item 1</NavLink>
+            <NavLink to="myAppoinments">My appoinments</NavLink>
           </li>
           <li>
-            <NavLink to="myItems">Sidebar Item 2</NavLink>
+            <NavLink to="myItems">My items</NavLink>
           </li>
         </ul>
       </div>

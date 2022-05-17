@@ -1,15 +1,28 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const Header = () => {
   const [user] = useAuthState(auth);
+  const { pathname } = useLocation();
 
   return (
     <div className="navbar bg-base-100 px-0 md:px-10">
       <div className="navbar-start">
+        {/* _______dashboard btn________ */}
+        {(pathname === "/dashboard" ||
+          pathname === "/dashboard/myAppoinments" ||
+          pathname === "/dashboard/myItems") && (
+          <label
+            htmlFor="my-drawer-2"
+            className="btn btn-primary drawer-button lg:hidden"
+          >
+            Dashboard
+          </label>
+        )}
+
         {/* _______dropdown for responsive_________ */}
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -47,9 +60,12 @@ const Header = () => {
             <li>
               <NavLink to="/contactus">Contact</NavLink>
             </li>
-            <li>
-              <NavLink to="/dashboard">Dashboard</NavLink>
-            </li>
+            {/* ________dashboard________ */}
+            {user && (
+              <li>
+                <NavLink to="/dashboard">Dashboard</NavLink>
+              </li>
+            )}
             {/* _______login_____ */}
             <li>
               {user ? (
@@ -89,9 +105,12 @@ const Header = () => {
           <li>
             <NavLink to="/contactus">Contact</NavLink>
           </li>
-          <li>
-            <NavLink to="/dashboard">Dashboard</NavLink>
-          </li>
+          {/* ________dashboard________ */}
+          {user && (
+            <li>
+              <NavLink to="/dashboard">Dashboard</NavLink>
+            </li>
+          )}
           {/* <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
             Theme
           </button> */}
