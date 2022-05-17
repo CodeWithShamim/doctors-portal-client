@@ -1,18 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { format } from "date-fns";
 import AvailableService from "./AvailableService";
 import BookingModal from "./BookingModal";
+import { useQuery } from "react-query";
+import Loading from "../Shared/Loading";
 
 const AvailableAppoinment = ({ date }) => {
-  const [services, setServices] = useState([]);
+  // const [services, setServices] = useState([]);
   const [treatment, setTreatment] = useState(null);
 
   const formatedDate = format(date, "PP");
-  useEffect(() => {
-    fetch(`http://localhost:5000/available?date=${formatedDate}`)
-      .then((res) => res.json())
-      .then((data) => setServices(data));
-  }, []);
+
+  // ___use query___
+  const {
+    data: services,
+    isLoading,
+    refetch,
+  } = useQuery(["user", formatedDate], () =>
+    fetch(`http://localhost:5000/available?date=${formatedDate}`).then((res) =>
+      res.json()
+    )
+  );
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <div className=" md:py-24">
       <h1 className="text-3xl text-secondary">
@@ -36,6 +49,7 @@ const AvailableAppoinment = ({ date }) => {
           treatment={treatment}
           setTreatment={setTreatment}
           date={date}
+          refetch={refetch}
         ></BookingModal>
       )}
     </div>

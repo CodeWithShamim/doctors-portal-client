@@ -4,7 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
-const BookingModal = ({ treatment, setTreatment, date }) => {
+const BookingModal = ({ treatment, setTreatment, date, refetch }) => {
   const { _id, name, slots } = treatment;
   const [{ displayName, email }] = useAuthState(auth);
 
@@ -41,6 +41,7 @@ const BookingModal = ({ treatment, setTreatment, date }) => {
         // console.log(data);
         // ____to close the modal___
         if (data.insertedId) {
+          refetch();
           setTreatment(null);
           toast.success(`Booking set is ${date} at ${slot}`);
         }
