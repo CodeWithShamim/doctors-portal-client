@@ -6,9 +6,11 @@ const SideBar = ({ children }) => {
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
-      <div className="drawer-content flex flex-col items-center justify-center bg-base-200 rounded-lg">
+      <div className="drawer-content bg-base-200 rounded-lg pt-10">
         {/* <!-- Page content here --> */}
-        <h1>This is Dashboard</h1>
+        <h1 className="text-4xl text-purple-400 font-bold">
+          Welcome to Dashboard
+        </h1>
         {children}
       </div>
 

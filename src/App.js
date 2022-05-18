@@ -16,11 +16,17 @@ import RequireAuth from "./components/Shared/RequireAuth";
 import Dashboard from "./components/Dashboard/Dashboard";
 import MyItems from "./components/Dashboard/MyItems";
 import MyAppoinments from "./components/Dashboard/MyAppoinments";
+import { createContext, useState } from "react";
 
+export const ThemeContext = createContext("theme");
 function App() {
+  const [theme, setTheme] = useState(true);
+
   return (
-    <div className="App">
-      <Header> </Header>{" "}
+    <div className="App" data-theme={theme ? "light" : "dark"}>
+      <ThemeContext.Provider value={[theme, setTheme]}>
+        <Header> </Header>
+      </ThemeContext.Provider>
       <Routes>
         <Route path="/" element={<Home> </Home>}></Route>
         <Route path="/about" element={<About> </About>}></Route>
@@ -55,7 +61,7 @@ function App() {
         <Route path="/login" element={<Login> </Login>}></Route>
         <Route path="/signup" element={<Signup> </Signup>}></Route>
         <Route Route path="*" element={<Page_404> </Page_404>}></Route>
-      </Routes>{" "}
+      </Routes>
       <Footer> </Footer> <ToastContainer />
     </div>
   );
