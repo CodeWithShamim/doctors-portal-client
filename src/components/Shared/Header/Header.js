@@ -145,7 +145,8 @@ const Header = () => {
         {/* _______dashboard btn________ */}
         {(pathname === "/dashboard" ||
           pathname === "/dashboard/myAppoinments" ||
-          pathname === "/dashboard/myItems") && (
+          pathname === "/dashboard/myItems" ||
+          pathname === "/dashboard/myHistory") && (
           <label
             htmlFor="my-drawer-2"
             className="btn btn-primary capitalize p-2 drawer-button lg:hidden"
@@ -156,7 +157,7 @@ const Header = () => {
         {/* --------thene btn----------- */}
         <li className="w-10 h-10 flex items-center content-center">
           <label className="swap swap-rotate">
-            <input type="checkbox" />
+            <input type="checkbox" onClick={() => setTheme(!theme)} />
 
             {/* --sun icon-- */}
             <svg

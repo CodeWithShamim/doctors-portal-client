@@ -1,11 +1,11 @@
 import React from "react";
 
-const MyItems = () => {
+const MyHistory = () => {
   return (
     <div className="text-white">
-      <h1>This is myItems</h1>
+      <h1>This is MyHistory</h1>
     </div>
   );
 };
 
-export default MyItems;
+export default MyHistory;

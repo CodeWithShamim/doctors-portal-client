@@ -17,6 +17,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import MyItems from "./components/Dashboard/MyItems";
 import MyAppoinments from "./components/Dashboard/MyAppoinments";
 import { createContext, useState } from "react";
+import MyHistory from "./components/Dashboard/MyHistory";
 
 export const ThemeContext = createContext("theme");
 function App() {
@@ -56,6 +57,7 @@ function App() {
           <Route index element={<MyAppoinments />}></Route>
           <Route path="myAppoinments" element={<MyAppoinments />}></Route>
           <Route path="myItems" element={<MyItems />}></Route>
+          <Route path="myHistory" element={<MyHistory />}></Route>
         </Route>
 
         <Route path="/login" element={<Login> </Login>}></Route>

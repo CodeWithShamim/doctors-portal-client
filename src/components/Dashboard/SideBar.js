@@ -6,7 +6,7 @@ const SideBar = ({ children }) => {
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
-      <div className="drawer-content bg-base-200 rounded-lg pt-10">
+      <div className="drawer-content bg-accent rounded pt-10">
         {/* <!-- Page content here --> */}
         <h1 className="text-4xl text-purple-400 font-bold">
           Welcome to Dashboard
@@ -23,6 +23,9 @@ const SideBar = ({ children }) => {
           </li>
           <li>
             <NavLink to="myItems">My items</NavLink>
+          </li>
+          <li>
+            <NavLink to="myHistory">My history</NavLink>
           </li>
         </ul>
       </div>

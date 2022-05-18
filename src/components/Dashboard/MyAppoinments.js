@@ -22,9 +22,9 @@ const MyAppoinments = () => {
   }
 
   return (
-    <div className="rounded-lg">
+    <div className="rounded-lg p-6">
       <div className="overflow-x-auto">
-        <table className="table w-full bg-primary">
+        <table className="table w-full mx-auto">
           {/* -- head -- */}
           <thead>
             <tr>
