@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import auth from "../../firebase.init";
 import {
   useSignInWithEmailAndPassword,
@@ -6,6 +6,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   const {
@@ -18,17 +19,16 @@ const Login = () => {
     useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [token] = useToken(user || googleUser);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  // ______get user_________
-  useEffect(() => {
-    if (googleUser || user) {
-      // console.log(googleUser);
-      navigate(from, { replace: true });
-    }
-  }, [googleUser, user, from, navigate]);
+  // ______navigate when received token_________
+  if (token) {
+    navigate(from, { replace: true });
+  }
+
   // // ______get loading______
   // if (googleLoading || loading) {
   //   return <button className="btn loading">loading</button>;
