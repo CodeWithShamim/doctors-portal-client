@@ -1,3 +1,4 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
@@ -18,12 +19,14 @@ const MyAppoinments = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // ______catch error_______
+        // _____handle error_______
         if (
           data.message === "Forbidden access" ||
           data.message === "Unauthorized access"
         ) {
           toast(data.message);
+          localStorage.removeItem("accessToken");
+          signOut(auth);
         } else {
           setAppoinments(data);
         }

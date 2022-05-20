@@ -27,6 +27,9 @@ const SideBar = ({ children }) => {
           <li>
             <NavLink to="myHistory">My history</NavLink>
           </li>
+          <li>
+            <NavLink to="users">All users</NavLink>
+          </li>
         </ul>
       </div>
     </div>
