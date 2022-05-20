@@ -13,11 +13,43 @@ const UserRow = ({ user, refetch }) => {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401) {
+          toast.error("Unauthorized access");
+        } else if (res.status === 403) {
+          toast.error("Forbidden access");
+        }
+        return res.json();
+      })
       .then((data) => {
+        refetch();
         if (data.modifiedCount) {
-          refetch();
           toast.success(`Successfully created admin for ${adminEmail}`);
+        }
+      });
+  };
+
+  // _____delete user______
+  const deleteUser = (userEmail) => {
+    const url = `http://localhost:5000/deleteUser/${userEmail}`;
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401) {
+          toast.error("Unauthorized access");
+        } else if (res.status === 403) {
+          toast.error("Forbidden access");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        refetch();
+        if (data.deletedCount) {
+          toast.success(`Successfully delete ${userEmail}`);
         }
       });
   };
@@ -41,8 +73,11 @@ const UserRow = ({ user, refetch }) => {
         )}
       </td>
       <td>
-        <button className="btn btn-xs btn-error text-white font-bold">
-          Remove user
+        <button
+          onClick={() => deleteUser(email)}
+          className="btn btn-xs btn-error text-white font-bold"
+        >
+          {role === "Admin" ? "Remove admin" : "Remove user"}
         </button>
       </td>
     </tr>

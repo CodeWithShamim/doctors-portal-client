@@ -15,7 +15,10 @@ const Users = () => {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-    }).then((res) => res.json());
+    }).then((res) => {
+      console.log(res);
+      return res.json();
+    });
   });
 
   if (isLoading) {
