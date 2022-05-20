@@ -10,6 +10,12 @@ const Header = () => {
   const { pathname } = useLocation();
   const [theme, setTheme] = useContext(ThemeContext);
 
+  // singout
+  const Logout = () => {
+    signOut(auth);
+    localStorage.removeItem("accessToken");
+  };
+
   return (
     <div className="navbar bg-base-100 px-2 md:px-14 py-6">
       <div className="navbar-start">
@@ -59,7 +65,7 @@ const Header = () => {
             {/* _______login_____ */}
             <li>
               {user ? (
-                <span className="btn btn-ghost" onClick={() => signOut(auth)}>
+                <span className="btn btn-ghost" onClick={Logout}>
                   Sign out
                 </span>
               ) : (
@@ -107,7 +113,7 @@ const Header = () => {
           {/* _______login_____ */}
           <li>
             {user ? (
-              <span className="btn btn-ghost" onClick={() => signOut(auth)}>
+              <span className="btn btn-ghost" onClick={Logout}>
                 Sign out
               </span>
             ) : (

@@ -46,6 +46,13 @@ const Login = () => {
     await updateProfile({ displayName: name });
   };
 
+  // ______upload image________
+  const handleImageUpload = (e) => {
+    const image = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    console.log(formData);
+  };
   return (
     <div className="flex items-center justify-center h-screen font-serif mx-4 md:mx-0">
       {/* _______card start__________ */}
@@ -153,6 +160,30 @@ const Login = () => {
               )}
             </label>
             {/* _________password field end_________  */}
+
+            {/* __________profile image________ */}
+            <label htmlFor="profilePhoto">Upload profile image</label>
+            <input
+              className="border-2 rounded-lg p-2"
+              type="file"
+              {...register("profilePhoto", {
+                required: {
+                  value: true,
+                  message: "Profile photo is required",
+                },
+              })}
+              onChange={handleImageUpload}
+              name="profilePhoto"
+              id="profilePhoto"
+            />
+            {/* Show error meassage for profile photo */}
+            <label className="mb-3">
+              {errors.profilePhoto?.type === "required" && (
+                <span className="text-red-500 text-sm">
+                  {errors.profilePhoto.message}
+                </span>
+              )}
+            </label>
 
             <span className="mb-4 text-xs p-2 cursor-pointer">
               Forgotton password?
