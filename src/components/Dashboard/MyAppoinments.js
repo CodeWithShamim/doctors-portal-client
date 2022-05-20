@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
@@ -9,10 +10,25 @@ const MyAppoinments = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const url = `http://localhost:5000/booking?email=${email}`;
-    fetch(url)
+    fetch(url, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
-        setAppoinments(data);
+        // ______catch error_______
+        if (
+          data.message === "Forbidden access" ||
+          data.message === "Unauthorized access"
+        ) {
+          toast(data.message);
+        } else {
+          setAppoinments(data);
+        }
+
+        // ____loading end_____
         setIsLoading(false);
       });
   }, [email]);
@@ -37,7 +53,7 @@ const MyAppoinments = () => {
             </tr>
           </thead>
           <tbody>
-            {appoinments.map(
+            {appoinments?.map(
               (
                 { patientName, patientPhone, treatmentName, date, slot },
                 index

@@ -54,9 +54,9 @@ const Login = () => {
     console.log(formData);
   };
   return (
-    <div className="flex items-center justify-center h-screen font-serif mx-4 md:mx-0">
+    <div className="flex items-center justify-center h-screen font-serif mx-4 md:mx-0 pt-32 pb-10">
       {/* _______card start__________ */}
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-100 px-10 bg-base-100 shadow-xl border-2">
         {/* ________card body start_______ */}
         <div className="card-body items-center text-left">
           <h2 className="card-title">Register</h2>
@@ -195,7 +195,7 @@ const Login = () => {
             </small>
 
             <input
-              className="cursor-pointer uppercase rounded-lg w-full text-base-300 text-md p-3 font-bold bg-black"
+              className="cursor-pointer uppercase rounded-lg w-full text-base-300 text-md p-3 font-bold bg-accent"
               type="submit"
               value={loading ? "Loading...." : "Sign up"}
             />
@@ -216,7 +216,7 @@ const Login = () => {
             ) : (
               <div
                 onClick={() => signInWithGoogle()}
-                className="btn bg-transparent hover:bg-transparent text-black grid h-15 border-2 py-2 cursor-pointer card rounded-box place-items-center"
+                className="btn bg-transparent hover:bg-transparent font-bold text-accent grid h-15 border-2 py-2 cursor-pointer card rounded-box place-items-center"
               >
                 CONTINUE WITH GOOGLE
               </div>

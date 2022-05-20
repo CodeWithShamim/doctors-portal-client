@@ -46,9 +46,9 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen font-serif mx-4 md:mx-0 bg-slate-100">
+    <div className="flex items-center justify-center h-screen font-serif mx-4 md:mx-0">
       {/* _______card start__________ */}
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-100 px-10 border-2 shadow-xl">
         {/* ________card body start_______ */}
         <div className="card-body items-center text-left">
           <h2 className="card-title">Login</h2>
