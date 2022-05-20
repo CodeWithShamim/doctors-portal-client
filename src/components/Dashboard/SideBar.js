@@ -1,7 +1,13 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 
 const SideBar = ({ children }) => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -27,9 +33,7 @@ const SideBar = ({ children }) => {
           <li>
             <NavLink to="myHistory">My history</NavLink>
           </li>
-          <li>
-            <NavLink to="users">All users</NavLink>
-          </li>
+          <li>{admin && <NavLink to="users">All users</NavLink>}</li>
         </ul>
       </div>
     </div>
