@@ -14,7 +14,7 @@ const SideBar = ({ children }) => {
 
       <div className="drawer-content bg-accent rounded pt-10">
         {/* <!-- Page content here --> */}
-        <h1 className="text-4xl text-purple-400 font-bold">
+        <h1 className="text-4xl text-teal-300 font-bold">
           Welcome to Dashboard
         </h1>
         {children}
@@ -25,15 +25,22 @@ const SideBar = ({ children }) => {
         <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>
-            <NavLink to="myAppoinments">My appoinments</NavLink>
+            <NavLink to="myAppoinments">My Appoinments</NavLink>
           </li>
           <li>
-            <NavLink to="myItems">My items</NavLink>
+            <NavLink to="myItems">My Items</NavLink>
           </li>
           <li>
-            <NavLink to="myHistory">My history</NavLink>
+            <NavLink to="myHistory">My History</NavLink>
           </li>
-          <li>{admin && <NavLink to="users">All users</NavLink>}</li>
+
+          {/* _____admin route____ */}
+          <li>
+            {admin && <NavLink to="users">All Users</NavLink>}
+            {admin && <NavLink to="addDoctor">Add Doctor</NavLink>}
+
+            {admin && <NavLink to="manageDoctors">Manage Doctors</NavLink>}
+          </li>
         </ul>
       </div>
     </div>
