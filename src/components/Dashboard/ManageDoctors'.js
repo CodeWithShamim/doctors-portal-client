@@ -61,6 +61,7 @@ const Users = () => {
         <DeleteConfirmModal
           key={doctor._id}
           doctor={doctor}
+          setDoctor={setDoctor}
           refetch={refetch}
         ></DeleteConfirmModal>
       )}

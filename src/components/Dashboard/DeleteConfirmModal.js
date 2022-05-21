@@ -1,7 +1,7 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const DeleteConfirmModal = ({ doctor, refetch }) => {
+const DeleteConfirmModal = ({ doctor, setDoctor, refetch }) => {
   const { name, email } = doctor;
 
   // _____delete doctor_____
@@ -23,6 +23,7 @@ const DeleteConfirmModal = ({ doctor, refetch }) => {
       })
       .then((data) => {
         refetch();
+        setDoctor(null);
         if (data.deletedCount) {
           toast.success(`Successfully delete ${name}`);
         }
@@ -30,23 +31,27 @@ const DeleteConfirmModal = ({ doctor, refetch }) => {
   };
   return (
     <div>
-      <a href="#my-modal-2" class="btn">
-        open modal
-      </a>
-
-      <div class="modal" id="my-modal-2">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg">
-            Congratulations random Interner user!
-          </h3>
-          <p class="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
+      <input
+        type="checkbox"
+        id="delete-confirm-modal"
+        className="modal-toggle"
+      />
+      <div className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-2xl text-error">{name}</h3>
+          <p className="py-4">
+            warning! if you delete this item but you can't back for next time.
           </p>
-          <div class="modal-action">
-            <a href="#" class="btn">
-              Yay!
-            </a>
+          <div className="modal-action">
+            <label htmlFor="delete-confirm-modal" className="btn">
+              Cancel
+            </label>
+            <button
+              onClick={deleteDoctor}
+              className="btn text-white font-bold btn-error"
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>
