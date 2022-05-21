@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
@@ -8,11 +8,15 @@ const AddDoctor = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const [services, setServices] = useState([
-    { name: "tooth speciallity" },
-    { name: "head speciality" },
-  ]);
+  const [services, setServices] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  // __________load treatment name______
+  useEffect(() => {
+    fetch("http://localhost:5000/treatment")
+      .then((res) => res.json())
+      .then((treatment) => setServices(treatment));
+  }, []);
 
   // ________get value use react hook form_________
   const onSubmit = async (data) => {
@@ -32,8 +36,7 @@ const AddDoctor = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (data) {
+        if (data.success) {
           const doctor = {
             name: name,
             email: email,
@@ -134,7 +137,9 @@ const AddDoctor = () => {
           id="speciality"
         >
           {services.map((service) => (
-            <option value={service.name}>{service.name}</option>
+            <option key={service._id} value={service.name}>
+              {service.name}
+            </option>
           ))}
         </select>
 

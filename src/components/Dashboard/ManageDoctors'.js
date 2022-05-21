@@ -27,6 +27,8 @@ const Users = () => {
     console.log(error);
   }
 
+  console.log(doctors);
+
   return (
     <div className="p-6">
       <h1 className="text-3xl py-3 text-orange-400 font-bold">All Doctors</h1>
