@@ -13,7 +13,7 @@ const AddDoctor = () => {
 
   // __________load treatment name______
   useEffect(() => {
-    fetch("http://localhost:5000/treatment")
+    fetch("https://doctors-portal100.herokuapp.com/treatment")
       .then((res) => res.json())
       .then((treatment) => setServices(treatment));
   }, []);
@@ -45,7 +45,7 @@ const AddDoctor = () => {
           };
 
           // ___________add a new doctor_________
-          fetch("http://localhost:5000/addDoctor", {
+          fetch("https://doctors-portal100.herokuapp.com/addDoctor", {
             method: "POST",
             headers: {
               "content-type": "application/json",
